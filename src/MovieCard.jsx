@@ -1,0 +1,33 @@
+import PropTypes from 'prop-types'; // Import PropTypes
+
+const MovieCard = ({ movie: { imdbID, Year, Poster, Title, Type } }) => {
+    return (
+        <div className="movie" key={imdbID}>
+            <div>
+                <p>{Year}</p>
+            </div>
+
+            <div>
+                <img src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/400"} alt={Title} />
+            </div>
+
+            <div>
+                <span>{Type}</span>
+                <h3>{Title}</h3>
+            </div>
+        </div>
+    );
+};
+
+// Define prop types for MovieCard
+MovieCard.propTypes = {
+    movie: PropTypes.shape({
+        imdbID: PropTypes.string.isRequired,
+        Year: PropTypes.string.isRequired,
+        Poster: PropTypes.string.isRequired,
+        Title: PropTypes.string.isRequired,
+        Type: PropTypes.string.isRequired
+    }).isRequired
+};
+
+export default MovieCard;
