@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import cors from "cors";
+//import cors from "cors";
 import MovieCard from "./MovieCard";
 import SearchIcon from "./search.svg";
 import "./App.css";
@@ -14,7 +14,7 @@ const App = () => {
     searchMovies("Has Fallen");
   }, []);
 
-  App.use(cors());
+  //App.use(cors());
 
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
